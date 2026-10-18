@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EduManage Pro
 
 EduManage Pro is a production-style student management platform built with Flask, PostgreSQL, SQLAlchemy, JWT authentication, and a modern HTML/CSS/JS frontend.
@@ -79,3 +80,6 @@ pytest
 - Keep PostgreSQL as the production database.
 - File uploads are stored in the configured upload folder.
 - CORS, rate limiting, JWT rotation, and validation are included at the application layer.
+=======
+# student-management
+>>>>>>> 3fce65f6b53ab6c5a9cf03dfbf34d9d20ae5c8dc
