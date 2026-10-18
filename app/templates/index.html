@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduManage Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  </head>
+  <body>
+    <div id="app-shell">
+      <aside class="sidebar hidden" id="sidebar">
+        <div class="brand-block">
+          <div class="brand-icon">E</div>
+          <div>
+            <div class="brand-name">EduManage Pro</div>
+            <div class="brand-subtitle">Academic Platform</div>
+          </div>
+        </div>
+        <nav class="nav-menu">
+          <button class="nav-item active" data-view="overview">Overview</button>
+          <button class="nav-item" data-view="students">Students</button>
+          <button class="nav-item" data-view="faculty">Faculty</button>
+          <button class="nav-item" data-view="departments">Departments</button>
+          <button class="nav-item" data-view="courses">Courses</button>
+          <button class="nav-item" data-view="attendance">Attendance</button>
+          <button class="nav-item" data-view="fees">Fees</button>
+          <button class="nav-item" data-view="reports">Reports</button>
+          <button class="nav-item" data-view="announcements">Announcements</button>
+        </nav>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <div>
+              <div class="eyebrow">Administration Console</div>
+              <h1>EduManage Pro</h1>
+            </div>
+          </div>
+          <div class="topbar-right">
+            <div class="user-chip" id="userChip">Guest</div>
+            <button class="logout-button" id="logoutButton">Logout</button>
+          </div>
+        </header>
+
+        <section class="auth-card" id="authCard">
+          <div class="auth-panel">
+            <h2>Welcome back</h2>
+            <p>Secure student lifecycle management for modern institutions.</p>
+            <form id="loginForm">
+              <label>
+                Email
+                <input type="email" id="email" required placeholder="admin@edumanagepro.edu" />
+              </label>
+              <label>
+                Password
+                <input type="password" id="password" required placeholder="Enter password" />
+              </label>
+              <button type="submit" class="primary-btn">Sign In</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="dashboard hidden" id="dashboardSection">
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="content-grid two-column">
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Student Distribution</h3>
+              </div>
+              <div class="chart-area donut-chart" id="chartDistribution"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-header">
+                <h3>Attendance</h3>
+              </div>
+              <div class="chart-area bar-chart" id="chartAttendance"></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Recent Activity</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Type</th><th>User</th><th>Time</th></tr>
+                </thead>
+                <tbody id="activityTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast"></div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  </body>
+</html>

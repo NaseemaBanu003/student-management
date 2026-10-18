@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "EduManage Pro API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"email\": \"superadmin@edumanagepro.edu\",\n  \"password\": \"Admin@12345\"\n}"},
+            "url": {"raw": "{{base_url}}/api/auth/login", "host": ["{{base_url}}"], "path": ["api", "auth", "login"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Students",
+      "item": [
+        {"name": "List Students", "request": {"method": "GET", "url": {"raw": "{{base_url}}/api/students", "host": ["{{base_url}}"], "path": ["api", "students"]}, "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}]}} ,
+        {"name": "Create Student", "request": {"method": "POST", "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"},{"key":"Content-Type","value":"application/json"}], "body":{"mode":"raw","raw":"{\n  \"first_name\": \"Asha\",\n  \"last_name\": \"Verma\",\n  \"email\": \"asha@example.com\",\n  \"department_id\": 1,\n  \"course_id\": 1\n}"}, "url":{"raw":"{{base_url}}/api/students","host":["{{base_url}}"],"path":["api","students"]}}]
+    },
+    {
+      "name": "Departments",
+      "item": [
+        {"name": "List Departments", "request": {"method": "GET", "url": {"raw": "{{base_url}}/api/departments", "host": ["{{base_url}}"], "path": ["api", "departments"]}, "header": [{"key": "Authorization", "value": "Bearer {{access_token}}"}]}}
+      ]
+    }
+  ],
+  "variable": [
+    {"key": "base_url", "value": "http://localhost:5000"},
+    {"key": "access_token", "value": ""},
+    {"key": "refresh_token", "value": ""}
+  ]
+}
